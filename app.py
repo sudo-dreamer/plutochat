@@ -11,9 +11,9 @@ from db import get_user, save_user, save_room, add_room_members, get_rooms_for_u
     get_room_members, is_room_admin, update_room, remove_room_members, save_message, get_messages, remove_room
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET')
-# app.config["MONGO_URI"] = "mongodb://localhost:27017/db"
-# db = PyMongo(app)
+app.secret_key = "sfdjkafnk"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/db"
+db = PyMongo(app)
 
 socketio = SocketIO(app)
 login_manager = LoginManager()
@@ -237,4 +237,4 @@ def load_user(username):
 
 
 if __name__ == '__main__':
-    app.run()
+    socketio.run(app, debug=True)
