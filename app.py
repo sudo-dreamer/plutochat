@@ -11,7 +11,7 @@ from db import get_user, save_user, save_room, add_room_members, get_rooms_for_u
     get_room_members, is_room_admin, update_room, remove_room_members, save_message, get_messages, remove_room
 
 app = Flask(__name__)
-app.secret_key = "sfdjkafnk"
+app.secret_key = "djoj"
 app.config["MONGO_URI"] = "mongodb://localhost:27017/db"
 db = PyMongo(app)
 
@@ -230,7 +230,9 @@ def handle_leave_room_event(data):
     leave_room(data['room'])
     socketio.emit('leave_room_announcement', data, room=data['room'])
 
-
+# @socketio.on('typing')
+# def typing(data):
+#     socketio.broadcast.emit('typing',data, room=data['room'])
 @login_manager.user_loader
 def load_user(username):
     return get_user(username)

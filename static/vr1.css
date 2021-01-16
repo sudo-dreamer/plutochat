@@ -500,3 +500,9 @@ textarea:focus {
         right: 10px;
     }
 }
+
+#feedback {
+    font-style: italic;
+    color: #eee;
+    margin-bottom: 10vh;
+}
