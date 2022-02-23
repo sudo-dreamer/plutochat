@@ -11,8 +11,7 @@ from db import get_user, save_user, save_room, add_room_members, get_rooms_for_u
     get_room_members, is_room_admin, update_room, remove_room_members, save_message, get_messages, remove_room
 
 app = Flask(__name__)
-app.secret_key = SECRET
-app.config["MONGO_URI"] = "mongodb://localhost:27017/db"
+app.secret_key = "b'\x82\x99@]\xd2f\xf4\x99\xc4\xc5\xa0;\x80\x9a1\n'"
 db = PyMongo(app)
 
 socketio = SocketIO(app)
